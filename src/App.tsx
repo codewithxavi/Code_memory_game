@@ -211,7 +211,7 @@ export default function Component() {
         </Button>
       </header>
       <div className="p-4 overflow-y-auto flex-1 mt-1/3 md:mt-0">
-        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-2 sm:gap-2 md:gap-2 lg:gap-1">
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-2 md:gap-2 lg:gap-1">
           {cards.map((card, index) => (
             <UICard
               key={card.id}
