@@ -180,7 +180,7 @@ export default function Component() {
   };
 
   return (
-    <div className="bg-background text-foreground w-screen h-screen flex flex-col md:flex-row">
+    <div className="bg-background text-foreground w-screen h-screen flex flex-col md:flex-row text-balance">
       <header className="overflow-y-auto w-full md:w-1/3 lg:w-1/4 p-6 bg-gradient-to-r from-sky-500 to-sky-600 text-[#eee7e7] shadow-lg md:relative md:h-auto fixed h-1/3">
         <h1 className="text-4xl font-extrabold mb-6 text-center animate-bounce">
           Memory Game 🧠
