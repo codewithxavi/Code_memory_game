@@ -2,9 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card as UICard, CardContent } from "@/components/ui/card";
 import * as Fa from "react-icons/fa";
 import * as Si from "react-icons/si";
+import { IconType } from "react-icons";
+
+interface Card {
+  id: number;
+  name: string;
+  icon: IconType;
+}
 
 const technologies = [
   { name: "HTML", icon: Fa.FaHtml5 },
@@ -111,9 +118,9 @@ const technologies = [
 
 export default function Component() {
   const [level, setLevel] = useState(1);
-  const [cards, setCards] = useState([]);
-  const [flippedIndexes, setFlippedIndexes] = useState([]);
-  const [matchedPairs, setMatchedPairs] = useState([]);
+  const [cards, setCards] = useState<Card[]>([]);
+  const [flippedIndexes, setFlippedIndexes] = useState<number[]>([]);
+  const [matchedPairs, setMatchedPairs] = useState<string[]>([]);
   const [failedAttempts, setFailedAttempts] = useState(0);
 
   useEffect(() => {
@@ -135,7 +142,7 @@ export default function Component() {
     setFailedAttempts(0);
   };
 
-  const handleCardClick = (index) => {
+  const handleCardClick = (index: number) => {
     if (
       flippedIndexes.length === 2 ||
       flippedIndexes.includes(index) ||
@@ -204,9 +211,9 @@ export default function Component() {
         </Button>
       </header>
       <div className="p-4 overflow-y-auto flex-1 mt-1/3 md:mt-0">
-        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-2 md:gap-2 lg:gap-1">
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-2 sm:gap-2 md:gap-2 lg:gap-1">
           {cards.map((card, index) => (
-            <Card
+            <UICard
               key={card.id}
               className={`cursor-pointer transition-all duration-150 w-full ${
                 flippedIndexes.includes(index) ||
@@ -227,7 +234,7 @@ export default function Component() {
                   <span className="text-5xl">?</span>
                 )}
               </CardContent>
-            </Card>
+            </UICard>
           ))}
         </div>
       </div>
